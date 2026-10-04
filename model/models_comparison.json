@@ -1,0 +1,86 @@
+[
+  {
+    "id": "random-forest",
+    "name": "Random Forest Classifier",
+    "nameThai": "โมเดลสุ่มต้นไม้หลายชุด (Random Forest)",
+    "accuracy": 74.5,
+    "precision": 13.7,
+    "recall": 80.0,
+    "f1Score": 23.5,
+    "rocAuc": 0.84,
+    "trainingTime": "0.41s",
+    "isDefault": true,
+    "pros": "จัดการความสัมพันธ์แบบไม่เป็นเชิงเส้นได้ดีเยี่ยม ทนต่อ Outlier และให้ค่า Feature Importance ที่แม่นยำ",
+    "cons": "ใช้หน่วยความจำสูงกว่า Linear Model และมีความซับซ้อนในการอธิบายผลระดับตัวแปรเดี่ยว",
+    "confusionMatrix": {
+      "trueNegative": 721,
+      "falsePositive": 251,
+      "falseNegative": 10,
+      "truePositive": 40,
+      "totalTest": 1022
+    }
+  },
+  {
+    "id": "logistic-regression",
+    "name": "Logistic Regression (Balanced)",
+    "nameThai": "การถดถอยโลจิสติก (Logistic Regression)",
+    "accuracy": 71.6,
+    "precision": 12.7,
+    "recall": 82.0,
+    "f1Score": 22.0,
+    "rocAuc": 0.844,
+    "trainingTime": "0.44s",
+    "isDefault": false,
+    "pros": "คำนวณเร็วมาก สามารถแปลผลสัมประสิทธิ์ (Odds Ratio) ได้ชัดเจน เหมาะเป็นเกณฑ์มาตรฐาน (Baseline)",
+    "cons": "ไม่สามารถจับความสัมพันธ์แบบซับซ้อน (Non-linear interactions) ได้เท่าโมเดลกลุ่ม Tree",
+    "confusionMatrix": {
+      "trueNegative": 691,
+      "falsePositive": 281,
+      "falseNegative": 9,
+      "truePositive": 41,
+      "totalTest": 1022
+    }
+  },
+  {
+    "id": "decision-tree",
+    "name": "Decision Tree (CART)",
+    "nameThai": "ต้นไม้ตัดสินใจ (Decision Tree)",
+    "accuracy": 73.8,
+    "precision": 12.4,
+    "recall": 72.0,
+    "f1Score": 21.2,
+    "rocAuc": 0.764,
+    "trainingTime": "0.01s",
+    "isDefault": false,
+    "pros": "เข้าใจง่าย สามารถแปลงโครงสร้างเป็นกฎ If-Else ทางคลินิกได้",
+    "cons": "มีโอกาสเกิด Overfitting ได้ง่าย ไวต่อการเปลี่ยนแปลงเล็กน้อยของชุดข้อมูล",
+    "confusionMatrix": {
+      "trueNegative": 718,
+      "falsePositive": 254,
+      "falseNegative": 14,
+      "truePositive": 36,
+      "totalTest": 1022
+    }
+  },
+  {
+    "id": "gradient-boosting",
+    "name": "Gradient Boosting Classifier",
+    "nameThai": "เกรเดียนต์บูสติง (Gradient Boosting)",
+    "accuracy": 79.5,
+    "precision": 14.6,
+    "recall": 66.0,
+    "f1Score": 23.9,
+    "rocAuc": 0.806,
+    "trainingTime": "0.48s",
+    "isDefault": false,
+    "pros": "ประสิทธิภาพการทำนายสูง ปรับปรุงจุดผิดพลาดของต้นไม้ก่อนหน้าไปเรื่อยๆ",
+    "cons": "เทรนช้ากว่า Random Forest และไวต่อการปรับ hyperparameter",
+    "confusionMatrix": {
+      "trueNegative": 779,
+      "falsePositive": 193,
+      "falseNegative": 17,
+      "truePositive": 33,
+      "totalTest": 1022
+    }
+  }
+]

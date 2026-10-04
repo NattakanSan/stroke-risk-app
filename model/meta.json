@@ -1,0 +1,17 @@
+{
+  "bmi_median": 28.1,
+  "continuous_ranges": {
+    "age": {
+      "min": 0.08,
+      "max": 82.0
+    },
+    "avg_glucose_level": {
+      "min": 55.12,
+      "max": 271.74
+    },
+    "bmi": {
+      "min": 10.3,
+      "max": 97.6
+    }
+  }
+}

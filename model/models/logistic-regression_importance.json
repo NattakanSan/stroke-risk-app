@@ -1,0 +1,19 @@
+{
+  "age": 0.022886549671957458,
+  "avg_glucose_level": 0.0011939786934906597,
+  "bmi": 0.0018321565712937072,
+  "gender": 0.037220166964602744,
+  "hypertension": 0.16459449579350455,
+  "heart_disease": 0.06696508683781613,
+  "ever_married": 0.0052661582621114904,
+  "residence_urban": 0.04367505861611276,
+  "work_Private": 0.040271863321107354,
+  "work_Self-employed": 0.10671477161158047,
+  "work_Govt_job": 0.04581051619451383,
+  "work_children": 0.23966378240162545,
+  "work_Never_worked": 0.05213278953534473,
+  "smoke_never_smoked": 0.06757457347810308,
+  "smoke_formerly_smoked": 0.017026945922196016,
+  "smoke_smokes": 0.0662262877094892,
+  "smoke_Unknown": 0.020944818415150446
+}

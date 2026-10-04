@@ -1,0 +1,18 @@
+{
+  "knn_accuracy": 0.8864,
+  "knn_confusion_matrix": [
+    [
+      66545,
+      2462
+    ],
+    [
+      6180,
+      917
+    ]
+  ],
+  "lir_mse": 0.0744,
+  "lir_r2": 0.1204,
+  "n_train": 177576,
+  "n_test": 76104,
+  "positive_rate_pct": 9.42
+}

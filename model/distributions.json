@@ -1,0 +1,170 @@
+{
+  "strokeDistribution": [
+    {
+      "name": "Non-Stroke (ปกติ)",
+      "count": 4861,
+      "percentage": 95.13,
+      "fill": "#10B981"
+    },
+    {
+      "name": "Stroke (พบภาวะ)",
+      "count": 249,
+      "percentage": 4.87,
+      "fill": "#EF4444"
+    }
+  ],
+  "ageDistribution": [
+    {
+      "group": "0-18 ปี",
+      "total": 916,
+      "strokeCount": 2,
+      "strokeRate": 0.22,
+      "nonStroke": 914
+    },
+    {
+      "group": "19-39 ปี",
+      "total": 1254,
+      "strokeCount": 6,
+      "strokeRate": 0.48,
+      "nonStroke": 1248
+    },
+    {
+      "group": "40-59 ปี",
+      "total": 1564,
+      "strokeCount": 60,
+      "strokeRate": 3.84,
+      "nonStroke": 1504
+    },
+    {
+      "group": "60-74 ปี",
+      "total": 858,
+      "strokeCount": 79,
+      "strokeRate": 9.21,
+      "nonStroke": 779
+    },
+    {
+      "group": "75+ ปี",
+      "total": 518,
+      "strokeCount": 102,
+      "strokeRate": 19.69,
+      "nonStroke": 416
+    }
+  ],
+  "bmiDistribution": [
+    {
+      "category": "Underweight (<18.5)",
+      "count": 337,
+      "strokeCount": 1,
+      "percentage": 6.6
+    },
+    {
+      "category": "Normal (18.5-24.9)",
+      "count": 1243,
+      "strokeCount": 35,
+      "percentage": 24.3
+    },
+    {
+      "category": "Overweight (25-29.9)",
+      "count": 1409,
+      "strokeCount": 75,
+      "percentage": 27.6
+    },
+    {
+      "category": "Obese I (30-34.9)",
+      "count": 1000,
+      "strokeCount": 56,
+      "percentage": 19.6
+    },
+    {
+      "category": "Obese II+ (≥35)",
+      "count": 920,
+      "strokeCount": 42,
+      "percentage": 18.0
+    }
+  ],
+  "glucoseDistribution": [
+    {
+      "range": "< 80 (ต่ำ)",
+      "total": 1530,
+      "stroke": 63
+    },
+    {
+      "range": "80 - 100 (ปกติ)",
+      "total": 1601,
+      "stroke": 49
+    },
+    {
+      "range": "101 - 140 (เสี่ยงเบาหวาน)",
+      "total": 1158,
+      "stroke": 44
+    },
+    {
+      "range": "141 - 200 (เบาหวาน)",
+      "total": 387,
+      "stroke": 37
+    },
+    {
+      "range": "> 200 (เบาหวานรุนแรง)",
+      "total": 434,
+      "stroke": 56
+    }
+  ],
+  "featureImportance": [
+    {
+      "feature": "age",
+      "thai": "อายุ (Age)",
+      "importance": 90,
+      "color": "#3B82F6",
+      "note": "ปัจจัยเสี่ยงสูงสุด ผู้ที่มีอายุมากขึ้นมีโอกาสพบภาวะสูงขึ้นอย่างมีนัยสำคัญ"
+    },
+    {
+      "feature": "avg_glucose_level",
+      "thai": "ระดับน้ำตาลเฉลี่ย (Glucose)",
+      "importance": 24,
+      "color": "#06B6D4",
+      "note": "ภาวะน้ำตาลในเลือดสูงส่งผลต่อหลอดเลือดเปราะแตกง่าย"
+    },
+    {
+      "feature": "bmi",
+      "thai": "ดัชนีมวลกาย (BMI)",
+      "importance": 21,
+      "color": "#8B5CF6",
+      "note": "ภาวะน้ำหนักเกินและโรคอ้วนสัมพันธ์กับความดันและไขมัน"
+    },
+    {
+      "feature": "work_type",
+      "thai": "ลักษณะการทำงาน",
+      "importance": 12,
+      "color": "#10B981",
+      "note": "ความเครียดและระดับกิจกรรมทางกายภาพในแต่ละอาชีพ"
+    },
+    {
+      "feature": "hypertension",
+      "thai": "โรคความดันโลหิตสูง",
+      "importance": 7,
+      "color": "#EC4899",
+      "note": "เพิ่มแรงดันต่อผนังหลอดเลือดสมองโดยตรง"
+    },
+    {
+      "feature": "smoking_status",
+      "thai": "ประวัติการสูบบุหรี่",
+      "importance": 7,
+      "color": "#F59E0B",
+      "note": "สารนิโคตินและทาร์เร่งการตีบตันของผนังหลอดเลือด"
+    },
+    {
+      "feature": "heart_disease",
+      "thai": "โรคหัวใจ",
+      "importance": 4,
+      "color": "#F43F5E",
+      "note": "ลิ่มเลือดจากหัวใจอาจหลุดไปอุดตันในหลอดเลือดสมอง"
+    },
+    {
+      "feature": "residence_urban",
+      "thai": "พื้นที่อยู่อาศัย (Urban/Rural)",
+      "importance": 2,
+      "color": "#64748B",
+      "note": "การเข้าถึงระบบบริการสุขภาพและวิถีชีวิต"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "totalRecords": 5110,
+  "strokeCases": 249,
+  "nonStrokeCases": 4861,
+  "strokePercentage": 4.87,
+  "featuresCount": 10,
+  "targetName": "stroke (0 = ไม่พบภาวะ, 1 = พบภาวะ)",
+  "missingBmiHandled": 201,
+  "source": "ไฟล์ CSV จริงที่อัปโหลด (healthcare-dataset-stroke-data.csv) — คำนวณสดทุกค่า ไม่ใช่ตัวเลขสมมติ"
+}

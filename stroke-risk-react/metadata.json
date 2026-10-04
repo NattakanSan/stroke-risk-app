@@ -1,0 +1,6 @@
+{
+  "name": "Stroke Risk Prediction System",
+  "description": "ระบบการพยากรณ์ความเสี่ยงการเกิดโรคหลอดเลือดในสมองด้วย Machine Learning และระบบวิเคราะห์ข้อมูลสุขภาพเพื่อการศึกษา",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

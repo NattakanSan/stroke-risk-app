@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stroke Risk Prediction</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-icon">🧠</span>
+      <div>
+        <div class="brand-title">Stroke Risk AI</div>
+        <div class="brand-sub">Prediction System</div>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-item active" data-page="prediction">🩺 Prediction</button>
+      <button class="nav-item" data-page="dataset">🗂️ Dataset &amp; Analytics</button>
+      <button class="nav-item" data-page="performance">📊 Model Performance</button>
+    </nav>
+    <div class="theme-switcher">
+      <div class="theme-label">Theme</div>
+      <div class="theme-grid">
+        <button class="theme-dot theme-light" data-theme-choice="light" title="Light"></button>
+        <button class="theme-dot theme-dark" data-theme-choice="dark" title="Dark"></button>
+        <button class="theme-dot theme-blue" data-theme-choice="blue" title="Blue"></button>
+        <button class="theme-dot theme-green" data-theme-choice="green" title="Green"></button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- ================= PREDICTION PAGE ================= -->
+    <section id="page-prediction" class="page active">
+      <header class="page-header">
+        <h1>Stroke Risk Prediction</h1>
+        <p>กรอกข้อมูลสุขภาพเพื่อให้โมเดล Machine Learning วิเคราะห์ความสัมพันธ์กับโรคหลอดเลือดสมอง</p>
+      </header>
+
+      <div class="preset-row">
+        <span>เคสจำลอง:</span>
+        <button class="chip" data-preset="high">High Risk Profile</button>
+        <button class="chip" data-preset="low">Low Risk Profile</button>
+        <button class="chip" data-preset="medium">Medium Risk Profile</button>
+      </div>
+
+      <div class="grid-2col">
+        <form id="predict-form" class="card">
+          <h2>แบบฟอร์มข้อมูลสุขภาพผู้ตรวจ</h2>
+
+          <div class="field-row">
+            <div class="field">
+              <label>เพศ (Gender)</label>
+              <div class="btn-toggle" data-field="gender">
+                <button type="button" data-value="0" class="active">หญิง (Female)</button>
+                <button type="button" data-value="1">ชาย (Male)</button>
+                <button type="button" data-value="1">อื่นๆ (Other)</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>อายุ (Age) <span id="age-out">40</span> ปี</label>
+              <input type="range" id="age" min="0" max="100" value="40">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>โรคความดันโลหิตสูง (Hypertension)</label>
+              <div class="btn-toggle" data-field="hypertension">
+                <button type="button" data-value="0" class="active">ไม่มี (No)</button>
+                <button type="button" data-value="1">มีภาวะนี้ (Yes)</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>ประวัติโรคหัวใจ (Heart Disease)</label>
+              <div class="btn-toggle" data-field="heart_disease">
+                <button type="button" data-value="0" class="active">ไม่มี (No)</button>
+                <button type="button" data-value="1">มีประวัติ (Yes)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>ระดับน้ำตาลเฉลี่ย (Avg Glucose) — mg/dL</label>
+              <input type="number" id="avg_glucose_level" value="95" step="0.1">
+              <small>ปกติ: 70 - 99</small>
+            </div>
+            <div class="field">
+              <label>ดัชนีมวลกาย (BMI) — kg/m²
+                <button type="button" id="open-bmi-modal" class="link-btn">คำนวณ BMI</button>
+              </label>
+              <input type="number" id="bmi" value="24.5" step="0.1">
+              <small>ปกติ: 18.5 - 22.9</small>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>ประวัติการสูบบุหรี่ (Smoking Status)</label>
+            <div class="btn-toggle wrap" data-field="smoking_status">
+              <button type="button" data-value="never smoked" class="active">ไม่เคยสูบ (Never)</button>
+              <button type="button" data-value="formerly smoked">เคยสูบในอดีต (Formerly)</button>
+              <button type="button" data-value="smokes">สูบประจำ (Smokes)</button>
+              <button type="button" data-value="Unknown">ไม่ระบุ (Unknown)</button>
+            </div>
+          </div>
+
+          <div class="field-row three">
+            <div class="field">
+              <label>สถานะการสมรส</label>
+              <div class="btn-toggle" data-field="ever_married">
+                <button type="button" data-value="1" class="active">สมรสแล้ว</button>
+                <button type="button" data-value="0">โสด/หย่าร้าง</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>ที่อยู่อาศัย</label>
+              <div class="btn-toggle" data-field="Residence_type">
+                <button type="button" data-value="Urban" class="active">เขตเมือง</button>
+                <button type="button" data-value="Rural">ชนบท</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>ประเภทงาน</label>
+              <select id="work_type">
+                <option value="Private" selected>เอกชน (Private)</option>
+                <option value="Self-employed">ธุรกิจส่วนตัว</option>
+                <option value="Govt_job">ราชการ</option>
+                <option value="children">เด็ก/นักเรียน</option>
+                <option value="Never_worked">ไม่เคยทำงาน</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="primary-btn">พยากรณ์ความเสี่ยงโรคหลอดเลือดสมอง (Predict Stroke Risk)</button>
+        </form>
+
+        <div class="card result-card">
+          <h2>ผลการพยากรณ์จากโมเดล</h2>
+          <div id="result-empty" class="result-empty">กรอกข้อมูลแล้วกดพยากรณ์เพื่อดูผลลัพธ์</div>
+
+          <div id="result-body" class="hidden">
+            <div class="risk-badge" id="risk-badge">LOW RISK</div>
+            <div class="prob-value" id="prob-value">0%</div>
+            <div class="prob-bar"><div class="prob-bar-fill" id="prob-bar-fill"></div></div>
+
+            <h3>ปัจจัยที่มีผลต่อการพยากรณ์ (Top 5)</h3>
+            <div id="factors-list"></div>
+
+            <p class="disclaimer">⚠️ ผลลัพธ์นี้มาจากโมเดลสถิติเพื่อการศึกษาเท่านั้น <strong>ไม่ใช่การวินิจฉัยทางการแพทย์</strong>
+              หากมีความกังวลเรื่องสุขภาพ กรุณาปรึกษาแพทย์โดยตรง</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DATASET PAGE ================= -->
+    <section id="page-dataset" class="page">
+      <header class="page-header">
+        <h1>Dataset &amp; Analytics</h1>
+        <p>ข้อมูลดิบที่ใช้เทรนโมเดล (healthcare-dataset-stroke-data.csv)</p>
+      </header>
+
+      <div class="stat-cards" id="dataset-stat-cards"></div>
+
+      <div class="grid-2col">
+        <div class="card"><canvas id="chart-age"></canvas></div>
+        <div class="card"><canvas id="chart-smoking"></canvas></div>
+      </div>
+
+      <div class="card">
+        <h2>ตารางข้อมูลทั้งหมด</h2>
+        <div class="table-wrap">
+          <table id="dataset-table"></table>
+        </div>
+        <div class="pagination">
+          <button id="prev-page">← ก่อนหน้า</button>
+          <span id="page-indicator"></span>
+          <button id="next-page">ถัดไป →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PERFORMANCE PAGE ================= -->
+    <section id="page-performance" class="page">
+      <header class="page-header">
+        <h1>Model Performance</h1>
+        <p>ประเมินผลโมเดลบนชุดข้อมูลทดสอบ (test set 20% ที่โมเดลไม่เคยเห็นตอนเทรน)</p>
+      </header>
+
+      <div class="stat-cards" id="metric-cards"></div>
+
+      <div class="grid-2col">
+        <div class="card">
+          <h2>Confusion Matrix</h2>
+          <table class="cm-table" id="cm-table"></table>
+          <p class="muted">TN = ทายไม่เป็น ถูก, FP = ทายว่าเป็นแต่จริงไม่เป็น, FN = ทายว่าไม่เป็นแต่จริงเป็น, TP = ทายเป็น ถูก</p>
+        </div>
+        <div class="card">
+          <h2>Feature Importance</h2>
+          <div id="importance-list"></div>
+        </div>
+      </div>
+      <p class="muted note">หมายเหตุ: ข้อมูลมีผู้ป่วย stroke เพียง ~5% ของทั้งหมด (imbalanced) accuracy สูงจึงไม่ได้แปลว่าโมเดลดี
+        ควรดู recall / ROC-AUC ประกอบด้วยเสมอ</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- BMI Calculator Modal -->
+<div id="bmi-modal" class="modal hidden">
+  <div class="modal-box">
+    <h2>คำนวณ BMI</h2>
+    <div class="field">
+      <label>น้ำหนัก (kg)</label>
+      <input type="number" id="bmi-weight" value="60">
+    </div>
+    <div class="field">
+      <label>ส่วนสูง (cm)</label>
+      <input type="number" id="bmi-height" value="165">
+    </div>
+    <div class="bmi-result" id="bmi-result">BMI = —</div>
+    <div class="modal-actions">
+      <button id="bmi-cancel" class="ghost-btn">ยกเลิก</button>
+      <button id="bmi-apply" class="primary-btn">ใช้ค่านี้</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
