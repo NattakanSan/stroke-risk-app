@@ -1,7 +1,10 @@
 node_modules/
 build/
-dist/
 coverage/
 .DS_Store
 *.log
 .env*
+# dist/ ไม่ถูก ignore โดยตั้งใจ — ต้อง commit ไฟล์ build ไว้ เพื่อให้ deploy
+# ขึ้น hosting (เช่น Render) ได้โดยไม่ต้องมี Node.js รันอยู่บนเซิร์ฟเวอร์เลย
+# ถ้าตั้งค่า build pipeline ที่รัน `npm run build` บนเซิร์ฟเวอร์เองแล้ว ค่อยเอาบรรทัดนี้ออกและ uncomment ด้านล่าง
+# dist/

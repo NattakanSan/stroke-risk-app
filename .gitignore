@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# ไม่ ignore model/ และ data/ โดยตั้งใจ — commit ไฟล์โมเดลที่เทรนแล้วไว้ด้วย
+# เพื่อให้ deploy ขึ้น hosting ได้เลยโดยไม่ต้องรัน train_model.py / train_heart_model.py
+# บนเซิร์ฟเวอร์ (ถ้าอยากให้เซิร์ฟเวอร์เทรนเองตอน build แทน ค่อยเพิ่ม model/ กลับมาที่นี่)
+
+.env
+.DS_Store
+*.log
