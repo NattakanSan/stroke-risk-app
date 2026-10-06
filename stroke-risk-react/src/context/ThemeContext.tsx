@@ -139,7 +139,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('stroke_app_theme') as ThemeMode;
-    return saved && THEME_CONFIGS[saved] ? saved : 'light';
+    return saved && THEME_CONFIGS[saved] ? saved : 'dark';
   });
 
   const setTheme = (newTheme: ThemeMode) => {
